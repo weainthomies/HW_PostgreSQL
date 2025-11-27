@@ -1,31 +1,32 @@
 CREATE TABLE IF NOT EXISTS Albums (
-    album_id INT SERIAL PRIMARY KEY,
+    album_id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     year INT
 );
 
 CREATE TABLE IF NOT EXISTS Performers (
-    performer_id INT SERIAL PRIMARY KEY,
-    pseudonym VARCHAR(255)
+    performer_id SERIAL PRIMARY KEY,
+    pseudonym VARCHAR(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Genres (
-    genre_id INT SERIAL PRIMARY KEY,
-    pseudonym VARCHAR(255)
+    genre_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Collections (
-    collection_id INT SERIAL PRIMARY KEY,
-    name VARCHAR(255),
+    collection_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) UNIQUE,
     year INT
 );
 
 CREATE TABLE IF NOT EXISTS Tracks (
-     track_id INT SERIAL PRIMARY KEY,
-     name VARCHAR(255),
-     duration TIME,
-     album_id INT,
-     FOREIGN KEY (album_id) REFERENCES Albums (album_id)
+     track_id SERIAL PRIMARY KEY,
+     name VARCHAR(255) NOT NULL,
+     duration INT,
+     album_id INT NOT NULL,
+     FOREIGN KEY (album_id) REFERENCES Albums (album_id),
+     CONSTRAINT uk_tracks_unique UNIQUE (name, album_id)
 );
 
 CREATE TABLE IF NOT EXISTS CollectionsTracks (
