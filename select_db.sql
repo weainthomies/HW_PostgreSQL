@@ -18,8 +18,14 @@ WHERE pseudonym ~ '^[a-zA-Z0-9]+$';
 
 SELECT name
 FROM Tracks
-WHERE name ILIKE '%мой%'
-   OR name ILIKE '%my%';
+WHERE name ILIKE 'my %'
+   OR name ILIKE '% my %'
+   OR name ILIKE '% my'
+   OR name ILIKE  'my'
+   OR name ILIKE 'мой %'
+   OR name ILIKE '% мой %'
+   OR name ILIKE '% мой'
+   OR name ILIKE  'мой';
 
 -- Задание 3
 

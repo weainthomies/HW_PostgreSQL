@@ -40,7 +40,18 @@ VALUES ('Dancing Queen', 230, 1),
        ('Hells Bells', 312, 5),
        ('You Shook Me All Night Long', 210, 5),
        ('Hunger of the Pine', 299, 6),
-       ('Left Hand Free', 173, 6)
+       ('Left Hand Free', 173, 6),
+       ('myself', 134, 6),
+       ('by myself', 167, 3),
+       ('bemy self', 165, 2),
+       ('myself by', 195, 1),
+       ('by myself by', 172, 5),
+       ('beemy', 188, 4),
+       ('premyne', 175, 4)
+       ('my own', 145, 5),
+       ('own my', 153, 2),
+       ('my', 134, 2),
+       ('oh my god', 124, 4)
 ON CONFLICT (name, album_id) DO NOTHING;
 
 INSERT INTO CollectionsTracks(track_id, collection_id)
@@ -57,6 +68,17 @@ VALUES (1, 1),
        (11, 1),
        (12, 3),
        (13, 4)
+       (14, 4),
+       (15, 3),
+       (16, 2),
+       (17, 3),
+       (18, 1),
+       (19, 4),
+       (20, 4),
+       (21, 1),
+       (22, 4),
+       (23, 1),
+       (24, 2)
 ON CONFLICT (track_id, collection_id) DO NOTHING;
 
 INSERT INTO PerformersAlbums(performer_id, album_id)
